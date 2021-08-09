@@ -138,6 +138,9 @@ html,body{
 /* User Info Style - Start */
 
 .user-info-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     max-width: 750px;
     margin: 60px auto;
@@ -152,11 +155,26 @@ html,body{
 
 .user-info-wrapper .details{
     margin: 50px 0;
+    width: 100%;
 }
 
 .user-info-wrapper .details .label{
     color: var(--theme-blue);
     margin: 10px 0;
+}
+
+.user-info-wrapper button{
+    padding: 15px 30px;
+    width: 30%;
+    border: 1px solid var(--theme-blue);
+    background-color: var(--theme-blue);
+    color: var(--theme-white);
+    cursor: pointer;
+}
+
+.user-info-wrapper button:hover{
+    background-color: var(--theme-white);
+    color: var(--theme-blue);
 }
 
 /* User Info Style - End */

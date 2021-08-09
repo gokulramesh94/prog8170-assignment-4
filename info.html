@@ -47,21 +47,13 @@
                     <div id="notes"></div>
                 </div>
             </div>
+            <button id="deleteBtn">Delete Record</button>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script>
-            $.urlParam = function(name){
-                var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-                if(results) return results[1] || 0;
-                else return results;
-            }
-            let record = $.urlParam('record');
-            if(record){
-
-            } else {
-                let data = JSON.parse(localStorage.getItem("user")) || [];
-                console.log(data[data.length - 1]);
-                let userInfo = data[data.length - 1];
+        <script>    
+            let data = JSON.parse(localStorage.getItem("user")) || [];
+            let userInfo = data[data.length - 1];
+            if(userInfo){
                 $(".user-info-wrapper .details .item #contactName").text(userInfo.firstName + " " + userInfo.lastName);
                 $(".user-info-wrapper .details .item #address").text(userInfo.address);
                 $(".user-info-wrapper .details .item #city").text(userInfo.city);
@@ -70,7 +62,18 @@
                 $(".user-info-wrapper .details .item #phoneNumber").text(userInfo.phoneNumber);
                 $(".user-info-wrapper .details .item #email").text(userInfo.email);
                 $(".user-info-wrapper .details .item #notes").text(userInfo.notes);
+            } else {
+                alert("No records found!");
             }
+
+            $("#deleteBtn").on("click", function(){
+                if (confirm('Are you sure you want to this record?')) {
+                    data.pop();
+                    localStorage.setItem("user", JSON.stringify(data));
+                    alert("Record deleted!");
+                    window.location.href = "./index.html";
+                }
+            });
         </script>
     </body>
 </html>
