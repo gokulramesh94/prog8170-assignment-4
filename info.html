@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PROG8170 - Assignment 4</title>
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+    <body>
+        <header>
+            <div class="topnav">
+                <a href="./index.html">New</a>
+                <a href="./search.html">Search</a>
+              </div>
+        </header>
+        <div class="user-info-wrapper">
+            <h3>Customer Info</h3>
+            <div class="details">
+                <div class="item">
+                    <div class="label">Contact Name</div>
+                    <div id="contactName"></div>
+                </div>
+                <div class="item">
+                    <div class="label">Address</div>
+                    <div id="address"></div>
+                </div>
+                <div class="item">
+                    <div class="label">City</div>
+                    <div id="city"></div>
+                </div>
+                <div class="item">
+                    <div class="label">Province</div>
+                    <div id="province"></div>
+                </div>
+                <div class="item">
+                    <div class="label">Postal Code</div>
+                    <div id="postalCode"></div>
+                </div>
+                <div class="item">
+                    <div class="label">Phone Number</div>
+                    <div id="phoneNumber"></div>
+                </div>
+                <div class="item">
+                    <div class="label">Email Address</div>
+                    <div id="email"></div>
+                </div>
+                <div class="item">
+                    <div class="label">Notes</div>
+                    <div id="notes"></div>
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $.urlParam = function(name){
+                var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+                if(results) return results[1] || 0;
+                else return results;
+            }
+            let record = $.urlParam('record');
+            if(record){
+
+            } else {
+                let data = JSON.parse(localStorage.getItem("user")) || [];
+                console.log(data[data.length - 1]);
+                let userInfo = data[data.length - 1];
+                $(".user-info-wrapper .details .item #contactName").text(userInfo.firstName + " " + userInfo.lastName);
+                $(".user-info-wrapper .details .item #address").text(userInfo.address);
+                $(".user-info-wrapper .details .item #city").text(userInfo.city);
+                $(".user-info-wrapper .details .item #province").text(userInfo.province);
+                $(".user-info-wrapper .details .item #postalCode").text(userInfo.postalCode);
+                $(".user-info-wrapper .details .item #phoneNumber").text(userInfo.phoneNumber);
+                $(".user-info-wrapper .details .item #email").text(userInfo.email);
+                $(".user-info-wrapper .details .item #notes").text(userInfo.notes);
+            }
+        </script>
+    </body>
+</html>

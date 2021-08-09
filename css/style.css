@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+:root{
+    --font-open-sans: 'Open Sans', sans-serif;
+    --theme-blue: #2E3770;
+    --theme-dark-grey: #828281;
+    --theme-white: #fff;
+    --theme-black: #000;
+}
+
+html,body{
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-open-sans);
+    color: var(--theme-dark-grey);
+}
+
+.d-none{
+    display: none !important;
+}
+
+/* Header Styles - Start */
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: var(--theme-white);
+    color: var(--theme-blue);
+    overflow: hidden;
+    box-shadow: 0 0 9px 3px rgba(0,0,0,.1);
+}
+  
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: var(--theme-blue);
+    text-align: center;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 17px;
+}
+  
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: var(--theme-blue);
+    color: var(--theme-white);
+}
+  
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: var(--theme-blue);
+    color: var(--theme-white);
+}
+
+/* Header Styles - End */
+
+/* Form Styles - Start */
+
+.form-wrapper{
+    width: 100%;
+    max-width: 750px;
+    margin: 60px auto;
+    padding: 30px;
+    box-shadow: 0 0 9px 2px rgb(0 0 0 / 10%);
+    border-radius: 10px;
+}
+
+.form-wrapper h3{
+    text-align: center;
+    color: var(--theme-blue);
+}
+
+.form-wrapper .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-wrapper .form .form-item{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-wrapper .form .form-item label{
+    color: var(--theme-blue);
+}
+
+.form-wrapper .form .form-item .form-field{
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--theme-dark-grey);
+}
+
+.form-wrapper .form .form-item textarea{
+    resize: none;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.form-wrapper .form .form-item select.form-field, .form-wrapper .form .form-item select.form-field option{
+    color: var(--theme-dark-grey);
+}
+
+.form-wrapper .form input[type=submit]{
+    padding: 15px 40px;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: var(--theme-blue);
+    border: 0;
+    color: var(--theme-white);
+}
+
+::-webkit-input-placeholder {
+    font-family: var(--font-open-sans);
+}
+:-moz-placeholder {
+    font-family: var(--font-open-sans);
+}
+::-moz-placeholder {
+    font-family: var(--font-open-sans);
+}
+:-ms-input-placeholder {
+    font-family: var(--font-open-sans);
+}
+
+.last-saved-record{
+    padding: 30px;
+    text-align: center;
+}
+
+/* Form Styles - End */
+
+/* User Info Style - Start */
+
+.user-info-wrapper{
+    width: 100%;
+    max-width: 750px;
+    margin: 60px auto;
+    padding: 30px;
+    box-shadow: 0 0 9px 2px rgb(0 0 0 / 10%);
+    border-radius: 10px;
+}
+
+.user-info-wrapper h3{
+    text-align: center;
+}
+
+.user-info-wrapper .details{
+    margin: 50px 0;
+}
+
+.user-info-wrapper .details .label{
+    color: var(--theme-blue);
+    margin: 10px 0;
+}
+
+/* User Info Style - End */
