@@ -9,10 +9,22 @@
             <div class="topnav">
                 <a href="./index.html">New</a>
                 <a class="active" href="./search.html">Search</a>
-              </div>
+            </div>
         </header>
-        
+        <div class="search-wrapper">
+           
+        </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="./script/script.js"></script>
+        <script>
+            let data = JSON.parse(localStorage.getItem("user")) || [];
+            console.log(data);
+            if(data.length > 0){
+                data.forEach(element => {
+                    $(".search-wrapper").append("<div class='item'><div class='label'>Contact Name</div><div class='detail'>" + element.firstName + " " + element.lastName + "</div><div class='label'>Address</div><div class='detail'>" + element.address + "</div><div class='label'>City</div><div class='detail'>" + element.city + "</div><div class='label'>Province</div><div class='detail'>" + element.province + "</div><div class='label'>Postal Code</div><div class='detail'>" + element.postalCode + "</div><div class='label'>Phone Number</div><div class='detail'>" + element.phoneNumber + "</div><div class='label'>Email Address</div><div class='detail'>" + element.email + "</div><div class='label'>Notes</div><div class='detail'>" + element.notes + "</div></div>")
+                });
+            } else {
+                alert("No records found!");
+            }
+        </script>
     </body>
 </html>
