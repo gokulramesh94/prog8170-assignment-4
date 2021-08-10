@@ -1,79 +1,85 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>PROG8170 - Assignment 4</title>
-        <link rel="stylesheet" href="./css/style.css" />
-    </head>
-    <body>
-        <header>
-            <div class="topnav">
-                <a href="./index.html">New</a>
-                <a href="./search.html">Search</a>
-              </div>
-        </header>
-        <div class="user-info-wrapper">
-            <h3>Customer Info</h3>
-            <div class="details">
-                <div class="item">
-                    <div class="label">Contact Name</div>
-                    <div id="contactName"></div>
-                </div>
-                <div class="item">
-                    <div class="label">Address</div>
-                    <div id="address"></div>
-                </div>
-                <div class="item">
-                    <div class="label">City</div>
-                    <div id="city"></div>
-                </div>
-                <div class="item">
-                    <div class="label">Province</div>
-                    <div id="province"></div>
-                </div>
-                <div class="item">
-                    <div class="label">Postal Code</div>
-                    <div id="postalCode"></div>
-                </div>
-                <div class="item">
-                    <div class="label">Phone Number</div>
-                    <div id="phoneNumber"></div>
-                </div>
-                <div class="item">
-                    <div class="label">Email Address</div>
-                    <div id="email"></div>
-                </div>
-                <div class="item">
-                    <div class="label">Notes</div>
-                    <div id="notes"></div>
-                </div>
-            </div>
-            <button id="deleteBtn">Delete Record</button>
+  <head>
+    <title>PROG8170 - Assignment 4</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="topnav">
+        <a href="./index.html">New</a>
+        <a href="./search.html">Search</a>
+      </div>
+    </header>
+    <div class="user-info-wrapper">
+      <h3>Customer Info</h3>
+      <div class="details">
+        <div class="item">
+          <div class="label">Contact Name</div>
+          <div id="contactName"></div>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script>    
-            let data = JSON.parse(localStorage.getItem("user")) || [];
-            let userInfo = data[data.length - 1];
-            if(userInfo){
-                $(".user-info-wrapper .details .item #contactName").text(userInfo.firstName + " " + userInfo.lastName);
-                $(".user-info-wrapper .details .item #address").text(userInfo.address);
-                $(".user-info-wrapper .details .item #city").text(userInfo.city);
-                $(".user-info-wrapper .details .item #province").text(userInfo.province);
-                $(".user-info-wrapper .details .item #postalCode").text(userInfo.postalCode);
-                $(".user-info-wrapper .details .item #phoneNumber").text(userInfo.phoneNumber);
-                $(".user-info-wrapper .details .item #email").text(userInfo.email);
-                $(".user-info-wrapper .details .item #notes").text(userInfo.notes);
-            } else {
-                alert("No records found!");
-            }
+        <div class="item">
+          <div class="label">Address</div>
+          <div id="address"></div>
+        </div>
+        <div class="item">
+          <div class="label">City</div>
+          <div id="city"></div>
+        </div>
+        <div class="item">
+          <div class="label">Province</div>
+          <div id="province"></div>
+        </div>
+        <div class="item">
+          <div class="label">Postal Code</div>
+          <div id="postalCode"></div>
+        </div>
+        <div class="item">
+          <div class="label">Phone Number</div>
+          <div id="phoneNumber"></div>
+        </div>
+        <div class="item">
+          <div class="label">Email Address</div>
+          <div id="email"></div>
+        </div>
+        <div class="item">
+          <div class="label">Notes</div>
+          <div id="notes"></div>
+        </div>
+      </div>
+      <button id="deleteBtn">Delete Record</button>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      let data = JSON.parse(localStorage.getItem("user")) || [];
+      let userInfo = data[data.length - 1];
+      if (userInfo) {
+        $(".user-info-wrapper .details .item #contactName").text(
+          userInfo.firstName + " " + userInfo.lastName
+        );
+        $(".user-info-wrapper .details .item #address").text(userInfo.address);
+        $(".user-info-wrapper .details .item #city").text(userInfo.city);
+        $(".user-info-wrapper .details .item #province").text(
+          userInfo.province
+        );
+        $(".user-info-wrapper .details .item #postalCode").text(
+          userInfo.postalCode
+        );
+        $(".user-info-wrapper .details .item #phoneNumber").text(
+          userInfo.phoneNumber
+        );
+        $(".user-info-wrapper .details .item #email").text(userInfo.email);
+        $(".user-info-wrapper .details .item #notes").text(userInfo.notes);
+      } else {
+        alert("No records found!");
+      }
 
-            $("#deleteBtn").on("click", function(){
-                if (confirm('Are you sure you want to this record?')) {
-                    data.pop();
-                    localStorage.setItem("user", JSON.stringify(data));
-                    alert("Record deleted!");
-                    window.location.href = "./index.html";
-                }
-            });
-        </script>
-    </body>
+      $("#deleteBtn").on("click", function () {
+        data.pop();
+        localStorage.setItem("user", JSON.stringify(data));
+        alert("Record deleted!");
+        window.location.href = "./index.html";
+      });
+    </script>
+  </body>
 </html>
